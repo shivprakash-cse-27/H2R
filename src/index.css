@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* ───────────── Design tokens ───────────── */
+:root {
+  --green:        #00ff88;
+  --green-dim:    #00cc66;
+  --green-glow:   rgba(0, 255, 136, 0.3);
+  --dark:         #000000;
+}
+
+/* ───────────── Reset ───────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ───────────── Scrollbar ───────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #00ff88; border-radius: 2px; }
+
+/* ───────────── Keyframes ───────────── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px #00ff88; }
+  50%       { opacity: 0.4; box-shadow: 0 0 3px #00ff88; }
+}
+
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* ───────────── Utilities ───────────── */
+.absolute { position: absolute; }
+.relative { position: relative; }
+.fixed    { position: fixed; }
+
+.inset-0  { inset: 0; }
+.pointer-events-none { pointer-events: none; }
+.overflow-hidden { overflow: hidden; }
+.group { }
+
+/* Flex helpers */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.items-baseline { align-items: baseline; }
+.justify-center { justify-content: center; }
+.gap-4  { gap: 1rem; }
+
+/* Text */
+.text-center { text-align: center; }
+.uppercase   { text-transform: uppercase; }
+.font-mono   { font-family: 'JetBrains Mono', monospace; }
+.font-rajdhani { font-family: 'Rajdhani', sans-serif; }
+.font-grotesk  { font-family: 'Space Grotesk', sans-serif; }
+
+/* ───────────── Component helpers ───────────── */
+.glass-green {
+  background: rgba(0, 255, 136, 0.03);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 255, 136, 0.15);
+}
+
+/* ───────────── Reduced motion ───────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
